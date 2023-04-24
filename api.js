@@ -28,7 +28,7 @@ const openai = new OpenAIApi(configuration);
 
 app.use(express.json());
 
-app.post("/transcribe", upload.single("audio"), async (req, res) => {
+app.post("/api/transcribe", upload.single("audio"), async (req, res) => {
   try {
     const audioPath = req.file.path;
     console.log(audioPath);
@@ -55,3 +55,5 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
+
+module.exports = app;
